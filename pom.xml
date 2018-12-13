@@ -25,6 +25,18 @@
         <system>GitHub Issue Management</system>
         <url>https://github.com/luomu32/mybatis-spring-boot-starter/issues</url>
     </issueManagement>
+    <developers>
+        <developer>
+            <name>ray</name>
+            <email>luomu32@hotmail.com</email>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://mit-license.org/</url>
+        </license>
+    </licenses>
 
     <properties>
         <java.version>1.7</java.version>
@@ -75,4 +87,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
+
 </project>

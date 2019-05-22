@@ -1,4 +1,5 @@
 # mybatis-spring-boot-starter
+![Maven Central](https://img.shields.io/maven-central/v/xyz.luomu32/mybatis-spring-boot-starter.svg)
 ## How to use it
 
 1. first add dependency to your project

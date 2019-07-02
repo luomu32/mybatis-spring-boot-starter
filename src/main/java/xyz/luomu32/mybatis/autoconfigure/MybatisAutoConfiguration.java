@@ -67,11 +67,6 @@ public class MybatisAutoConfiguration {
 
         if (properties.getConfigurationLocation() != null)
             factoryBean.setConfigLocation(properties.getConfigurationLocation());
-        else {
-            org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
-            configuration.setDefaultScriptingLanguage(OptimisticLockXMLLanguageDriver.class);
-            factoryBean.setConfiguration(configuration);
-        }
 
         if (properties.getTypeHandlersPackage() != null)
             factoryBean.setTypeHandlersPackage(properties.getTypeHandlersPackage());

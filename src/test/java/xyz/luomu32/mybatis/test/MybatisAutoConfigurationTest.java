@@ -40,11 +40,4 @@ public class MybatisAutoConfigurationTest {
         User user = userDao.findByUsername("zhangs");
         assert user != null;
     }
-
-    @Test
-    public void testInterceptor() {
-        SqlSessionFactory sqlSessionFactory = applicationContext.getBean(SqlSessionFactory.class);
-        System.out.println(sqlSessionFactory.getConfiguration().getInterceptors().size());
-    }
-
 }

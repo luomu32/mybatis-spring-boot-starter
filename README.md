@@ -54,3 +54,5 @@ mybatis:
 
 or just add to Spring container with @Compent or @Bean.the starter will get bean which implement `org.apache.ibatis.plugin.Interceptor` from Spring container,and register it to Mybatis.
 
+## Requirements
+MyBatis 3.4+, MyBatis-Spring 1.3+，Spring Boot 1.5+

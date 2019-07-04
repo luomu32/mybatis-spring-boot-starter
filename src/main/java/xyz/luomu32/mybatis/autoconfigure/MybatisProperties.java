@@ -29,6 +29,8 @@ public class MybatisProperties {
 
     private Boolean failFast;
 
+    private Integer metricsSlowSqlThreshold;
+
     private List<Class<?>> interceptors = new ArrayList<>();
 
 
@@ -71,6 +73,14 @@ public class MybatisProperties {
 
     public void setTypeHandlersPackage(String typeHandlersPackage) {
         this.typeHandlersPackage = typeHandlersPackage;
+    }
+
+    public Integer getMetricsSlowSqlThreshold() {
+        return metricsSlowSqlThreshold;
+    }
+
+    public void setMetricsSlowSqlThreshold(Integer metricsSlowSqlThreshold) {
+        this.metricsSlowSqlThreshold = metricsSlowSqlThreshold;
     }
 
     public List<Class<?>> getInterceptors() {

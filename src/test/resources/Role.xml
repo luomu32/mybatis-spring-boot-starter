@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.luomu32.mybatis.test.RoleMapper">
+
+    <resultMap id="Role" type="xyz.luomu32.mybatis.test.Role">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="User">
+        select id,name from t_role
+        <where>
+            <if test="id != null">id=#{id}</if>
+            <if test="username !=null">username=#{username}</if>
+        </where>
+    </select>
+</mapper>

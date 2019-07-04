@@ -97,34 +97,22 @@ public class MybatisAutoConfiguration {
                 resources = new Resource[0];
             }
         } else {
-            List<Resource> resources1 = new ArrayList<>();
+            List<Resource> resourcesFromDifferentLocation = new ArrayList<>();
             PathMatchingResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
             for (String location : properties.getMapperLocations()) {
                 try {
-                    for (Resource resource : resourcePatternResolver.getResources(location)) {
-                        resources1.add(resource);
-                    }
+                    resourcesFromDifferentLocation.addAll(Arrays.asList(resourcePatternResolver.getResources(location)));
                 } catch (IOException e) {
 
                 }
             }
-            resources = new Resource[resources1.size()];
-            resources1.toArray(resources);
+            resources = new Resource[resourcesFromDifferentLocation.size()];
+            resourcesFromDifferentLocation.toArray(resources);
         }
 
         if (resources.length == 0)
             LOGGER.info("not found any mybatis mapper file");
 
-
-        for (Resource resource : resources) {
-            try {
-                String mapper = new String(FileCopyUtils.copyToByteArray(resource.getInputStream()));
-
-                new InputStreamResource(new ByteArrayInputStream("".getBytes()));
-            } catch (IOException e) {
-
-            }
-        }
         return resources;
     }
 

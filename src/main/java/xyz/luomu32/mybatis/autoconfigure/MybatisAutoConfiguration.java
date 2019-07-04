@@ -39,7 +39,6 @@ import java.util.List;
 @ConditionalOnBean(DataSource.class)
 @EnableConfigurationProperties(MybatisProperties.class)
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
-@Import(MybatisMapperAutoConfiguration.class)
 public class MybatisAutoConfiguration {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MybatisAutoConfiguration.class);

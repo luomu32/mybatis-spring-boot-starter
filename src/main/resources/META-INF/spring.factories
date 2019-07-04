@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-xyz.luomu32.mybatis.autoconfigure.MybatisAutoConfiguration
+xyz.luomu32.mybatis.autoconfigure.MybatisAutoConfiguration,\
+xyz.luomu32.mybatis.autoconfigure.MybatisMapperAutoConfiguration,\
+xyz.luomu32.mybatis.autoconfigure.MybatisStatisticsAutoConfiguration

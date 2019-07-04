@@ -1,11 +1,16 @@
 package xyz.luomu32.mybatis.autoconfigure;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +20,9 @@ import org.springframework.util.StringUtils;
 import xyz.luomu32.mybatis.BaseDao;
 
 @Configuration
+@ConditionalOnClass({SqlSession.class, SqlSessionFactoryBean.class})
+@AutoConfigureAfter(MybatisAutoConfiguration.class)
+@ConditionalOnMissingBean(MapperScannerConfigurer.class)
 public class MybatisMapperAutoConfiguration implements EnvironmentAware, BeanFactoryAware {
 
     private Environment environment;

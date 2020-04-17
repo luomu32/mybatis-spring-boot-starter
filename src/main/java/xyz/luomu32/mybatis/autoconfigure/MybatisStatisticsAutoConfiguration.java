@@ -12,7 +12,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Repository;
 import xyz.luomu32.mybatis.plugin.StatisticsInterceptor;
+import xyz.luomu32.mybatis.spring.actuator.MyBatisMetricsRecoder;
 
 import java.util.Properties;
 
@@ -23,10 +25,10 @@ import java.util.Properties;
 public class MybatisStatisticsAutoConfiguration {
 
     @Bean
-    public Interceptor statisticsInterceptro(RichGaugeRepository richGaugeRepository,
-                                             MybatisProperties mybatisProperties) {
+    public Interceptor statisticsInterceptro(
+            MybatisProperties mybatisProperties) {
 
-        StatisticsInterceptor interceptor = new StatisticsInterceptor(richGaugeRepository);
+        StatisticsInterceptor interceptor = new StatisticsInterceptor();
 
         if (null != mybatisProperties.getMetricsSlowSqlThreshold()) {
             Properties properties = new Properties();
@@ -34,6 +36,11 @@ public class MybatisStatisticsAutoConfiguration {
             interceptor.setProperties(properties);
         }
         return interceptor;
+    }
+
+    @Bean
+    public MyBatisMetricsRecoder myBatisMetricsRecoder(RichGaugeRepository richGaugeRepository) {
+        return new MyBatisMetricsRecoder(richGaugeRepository);
     }
 
     @Bean
